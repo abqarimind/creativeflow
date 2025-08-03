@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreativeFlow - L'automatisation intelligente pour Creative Strategists</title>
+    <link rel="icon" type="image/png" href="Logo ² + Fond .png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #ffffff;
+            --accent: #6366f1;
+            --accent-hover: #4f46e5;
+            --accent-light: #8b5cf6;
+            --accent-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --glass-shadow: 0 8px 32px rgba(99, 102, 241, 0.1);
+            --glow-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+            --gray-light: #f8fafc;
+            --gray-medium: #64748b;
+            --gray-dark: #1e293b;
+            --max-width: 1200px;
+            --spacing-xs: 8px;
+            --spacing-sm: 16px;
+            --spacing-md: 24px;
+            --spacing-lg: 48px;
+            --spacing-xl: 80px;
+            --spacing-xxl: 120px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            color: var(--gray-dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-sm) var(--spacing-md);
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-cta {
+            background: var(--accent-gradient);
+            color: var(--secondary);
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            box-shadow: var(--glass-shadow);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .nav-cta:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--glow-shadow);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: calc(var(--spacing-xxl) + 60px) 0 var(--spacing-xxl);
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            animation: fadeInUp 0.8s ease;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--glass-bg);
+            color: var(--gray-dark);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: var(--glass-shadow);
+        }
+
+        .hero-headline {
+            font-size: clamp(48px, 8vw, 72px);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: var(--spacing-md);
+            letter-spacing: -0.02em;
+        }
+
+        .hero-headline .highlight {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(18px, 3vw, 24px);
+            color: var(--gray-medium);
+            max-width: 600px;
+            margin: 0 auto var(--spacing-lg);
+            font-weight: 400;
+        }
+
+        /* Main Visual Area */
+        .hero-visual {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto var(--spacing-xl);
+            animation: fadeInUp 0.8s ease 0.3s both;
+        }
+
+        .main-image-container {
+            position: relative;
+            display: inline-block;
+            transform: rotate(-5deg);
+            transition: transform 0.3s ease;
+        }
+
+        .main-image-container:hover {
+            transform: rotate(0deg);
+        }
+
+        .main-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 24px;
+            box-shadow: var(--glass-shadow);
+            border: 1px solid var(--glass-border);
+        }
+
+        /* Floating Badges */
+        .floating-badge {
+            position: absolute;
+            background: var(--glass-bg);
+            padding: 12px 20px;
+            border-radius: 16px;
+            box-shadow: var(--glass-shadow);
+            font-weight: 600;
+            font-size: 14px;
+            animation: float 3s ease-in-out infinite;
+            z-index: 10;
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: var(--gray-dark);
+        }
+
+        .floating-badge.top-left {
+            top: -20px;
+            left: -60px;
+            animation-delay: 0s;
+        }
+
+        .floating-badge.top-right {
+            top: -30px;
+            right: -80px;
+            animation-delay: 0.5s;
+        }
+
+        .floating-badge.bottom-left {
+            bottom: -40px;
+            left: -40px;
+            animation-delay: 1s;
+        }
+
+        .floating-badge.bottom-right {
+            bottom: -20px;
+            right: -60px;
+            animation-delay: 1.5s;
+        }
+
+        .floating-badge.mid-left {
+            top: 50%;
+            left: -100px;
+            transform: translateY(-50%);
+            animation-delay: 0.8s;
+        }
+
+        .floating-badge.mid-right {
+            top: 50%;
+            right: -120px;
+            transform: translateY(-50%);
+            animation-delay: 1.2s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .badge-icon {
+            display: inline-block;
+            margin-right: 8px;
+            font-size: 16px;
+        }
+
+        /* Stats as Badges */
+        .stats-badges {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+            flex-wrap: wrap;
+        }
+
+        .stat-badge {
+            background: var(--glass-bg);
+            padding: 16px 24px;
+            border-radius: 16px;
+            box-shadow: var(--glass-shadow);
+            text-align: center;
+            min-width: 140px;
+            animation: fadeInUp 0.8s ease 0.6s both;
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .stat-badge:nth-child(2) { animation-delay: 0.7s; }
+        .stat-badge:nth-child(3) { animation-delay: 0.8s; }
+
+        .stat-number {
+            display: block;
+            font-size: 32px;
+            font-weight: 700;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--gray-medium);
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        /* CTA */
+        .hero-cta {
+            animation: fadeInUp 0.8s ease 0.9s both;
+        }
+
+        .cta-primary {
+            display: inline-block;
+            background: var(--accent-gradient);
+            color: var(--secondary);
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: var(--glass-shadow);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .cta-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-3px);
+            box-shadow: var(--glow-shadow);
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+            animation: fadeIn 1s ease 0.5s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--accent);
+            display: block;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--gray-medium);
+            margin-top: 8px;
+        }
+
+        /* Pain Points Section */
+        .pain-points {
+            padding: var(--spacing-xxl) 0;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.02) 0%, rgba(139, 92, 246, 0.02) 100%);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .section-title {
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+            letter-spacing: -0.02em;
+        }
+
+        .section-subtitle {
+            font-size: 20px;
+            color: var(--gray-medium);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+
+        .pain-card {
+            padding: var(--spacing-lg);
+            background: var(--glass-bg);
+            border-radius: 24px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: var(--glass-shadow);
+        }
+
+        .pain-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--glow-shadow);
+        }
+
+        .pain-icon {
+            font-size: 48px;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .pain-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .pain-description {
+            color: var(--gray-medium);
+            line-height: 1.6;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: var(--spacing-xxl) 0;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.02) 0%, rgba(99, 102, 241, 0.02) 100%);
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+
+        .step {
+            text-align: center;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .step:nth-child(1) { animation-delay: 0.1s; }
+        .step:nth-child(2) { animation-delay: 0.2s; }
+        .step:nth-child(3) { animation-delay: 0.3s; }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: var(--accent-gradient);
+            color: var(--secondary);
+            border-radius: 50%;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+            box-shadow: var(--glass-shadow);
+            border: 1px solid var(--glass-border);
+        }
+
+        .step-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .step-description {
+            color: var(--gray-medium);
+        }
+
+        /* Video Demo Section */
+        .video-demo {
+            padding: var(--spacing-xxl) 0;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.03) 0%, rgba(139, 92, 246, 0.03) 100%);
+        }
+
+        .video-wrapper {
+            margin-top: var(--spacing-xl);
+        }
+
+        .video-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto var(--spacing-xl);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--glass-shadow);
+            background: var(--gray-dark);
+            border: 1px solid var(--glass-border);
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
+        .video-overlay:hover .play-button svg {
+            transform: scale(1.1);
+        }
+
+        .play-button {
+            transition: transform 0.3s ease;
+        }
+
+        .play-button svg {
+            filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.3));
+            transition: transform 0.3s ease;
+        }
+
+        .video-duration {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .video-placeholder {
+            width: 100%;
+            aspect-ratio: 16/9;
+        }
+
+        /* Interface Mockup */
+        .interface-mockup {
+            width: 100%;
+            height: 100%;
+            background: #1a1a1a;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mockup-header {
+            background: #2a2a2a;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .mockup-dots {
+            display: flex;
+            gap: 8px;
+        }
+
+        .mockup-dots span {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #444;
+        }
+
+        .mockup-dots span:first-child { background: #ff5f57; }
+        .mockup-dots span:nth-child(2) { background: #ffbd2e; }
+        .mockup-dots span:last-child { background: #28ca42; }
+
+        .mockup-title {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+        }
+
+        .mockup-content {
+            display: flex;
+            flex: 1;
+        }
+
+        .mockup-sidebar {
+            width: 200px;
+            background: #222;
+            padding: 20px;
+        }
+
+        .mockup-item {
+            padding: 12px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .mockup-item.active {
+            background: var(--accent);
+            color: white;
+        }
+
+        .mockup-main {
+            flex: 1;
+            padding: 30px;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .video-card {
+            background: #2a2a2a;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .video-thumb {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, #444, #666);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .processing-icon {
+            font-size: 32px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+
+        .video-tags {
+            padding: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .tag {
+            background: rgba(99, 102, 241, 0.2);
+            color: var(--accent);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .video-status {
+            padding: 12px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .video-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: var(--spacing-md);
+            align-items: flex-start;
+            background: var(--glass-bg);
+            padding: var(--spacing-md);
+            border-radius: 16px;
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: var(--glass-shadow);
+        }
+
+        .feature-icon {
+            font-size: 32px;
+            line-height: 1;
+        }
+
+        .feature-text strong {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+
+        .feature-text span {
+            color: var(--gray-medium);
+            font-size: 14px;
+        }
+
+        /* ROI Calculator */
+        .roi-section {
+            padding: var(--spacing-xxl) 0;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.02) 0%, rgba(99, 102, 241, 0.02) 100%);
+        }
+
+        .roi-calculator {
+            max-width: 600px;
+            margin: var(--spacing-xl) auto 0;
+            padding: var(--spacing-lg);
+            background: var(--glass-bg);
+            border-radius: 24px;
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: var(--glass-shadow);
+        }
+
+        .calculator-input {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .calculator-input label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .slider {
+            width: 100%;
+            -webkit-appearance: none;
+            appearance: none;
+            height: 8px;
+            background: var(--gray-medium);
+            border-radius: 8px;
+            outline: none;
+            transition: background 0.3s;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            background: var(--accent-gradient);
+            cursor: pointer;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            box-shadow: var(--glass-shadow);
+        }
+
+        .slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+            box-shadow: var(--glow-shadow);
+        }
+
+        .slider-value {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: var(--spacing-sm) 0;
+        }
+
+        .roi-results {
+            margin-top: var(--spacing-lg);
+            padding: var(--spacing-md);
+            background: var(--glass-bg);
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .roi-stat {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .roi-stat strong {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 24px;
+        }
+
+        /* Testimonial */
+        .testimonial {
+            padding: var(--spacing-xxl) 0;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.02) 0%, rgba(139, 92, 246, 0.02) 100%);
+            text-align: center;
+        }
+
+        .testimonial-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--glass-bg);
+            padding: var(--spacing-xl);
+            border-radius: 24px;
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: var(--glass-shadow);
+        }
+
+        .testimonial-quote {
+            font-size: 28px;
+            font-weight: 300;
+            line-height: 1.4;
+            margin-bottom: var(--spacing-lg);
+            position: relative;
+        }
+
+        .testimonial-quote::before {
+            content: '"';
+            font-size: 80px;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: absolute;
+            top: -40px;
+            left: -40px;
+            opacity: 0.3;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-md);
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--accent-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            font-weight: 700;
+            font-size: 24px;
+            box-shadow: var(--glass-shadow);
+        }
+
+        .author-info {
+            text-align: left;
+        }
+
+        .author-name {
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .author-title {
+            color: var(--gray-medium);
+            font-size: 14px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: var(--spacing-xxl) 0;
+            background: var(--accent-gradient);
+            color: var(--secondary);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            color: var(--secondary);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .cta-section .section-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .cta-secondary {
+            display: inline-block;
+            background: var(--glass-bg);
+            color: var(--secondary);
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            margin-top: var(--spacing-lg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: var(--glass-shadow);
+        }
+
+        .cta-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--glow-shadow);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            padding: var(--spacing-lg) 0;
+            background: var(--glass-bg);
+            color: var(--gray-dark);
+            text-align: center;
+            border-top: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .footer-content {
+            opacity: 0.8;
+            font-size: 14px;
+        }
+
+        .footer-branding {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+        }
+
+        .footer-logo {
+            height: 24px;
+            width: auto;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-logo:hover {
+            opacity: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-container {
+                text-align: center;
+            }
+            
+            .floating-badge {
+                display: none;
+            }
+            
+            .stats-badges {
+                flex-direction: column;
+                align-items: center;
+                gap: var(--spacing-md);
+            }
+            
+            .stat-badge {
+                min-width: 200px;
+            }
+            
+            .main-image-container {
+                transform: rotate(0deg);
+            }
+            
+            .pain-grid,
+            .steps {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-md);
+            }
+
+            .testimonial-quote::before {
+                display: none;
+            }
+            
+            .mockup-sidebar {
+                display: none;
+            }
+            
+            .video-features {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-md);
+            }
+            
+            .video-container {
+                margin: 0 0 var(--spacing-md);
+            }
+        }
+
+        /* Loading Animation */
+        .loading-animation {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top-color: var(--secondary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 50px;
+            border: 2px solid var(--gray-medium);
+            border-radius: 20px;
+            opacity: 0.5;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .scroll-indicator:hover {
+            opacity: 1;
+        }
+
+        .scroll-indicator::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 10px;
+            background: var(--gray-medium);
+            border-radius: 3px;
+            animation: scroll 2s infinite;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(-50%) translateY(0); opacity: 1; }
+            100% { transform: translateX(-50%) translateY(20px); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">CreativeFlow</a>
+            <a href="https://calendly.com/ayoub-benhaddya/le-rouage-audit-ia-30min" target="_blank" class="nav-cta">Appel stratégique →</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-container">
+                <!-- 1. Badge cible -->
+                <div class="hero-content">
+                    <span class="hero-badge">Pour Creative Strategists E-commerce</span>
+                    
+                    <!-- 2. Headline impactant en deux couleurs -->
+                    <h1 class="hero-headline">
+                        Et si vos vidéos<br>
+                        <span class="highlight">s'organisaient seules ?</span>
+                    </h1>
+                    
+                    <!-- 3. Sous-texte concis -->
+                    <p class="hero-subtitle">
+                        Automatisez l'import, le tri et le tagging de vos assets créatifs.<br>
+                        Gagnez 80% de temps de pré-montage et concentrez-vous sur ce qui compte : créer.
+                    </p>
+                </div>
+                
+                <!-- 4. Visuel explicatif avec badges flottants -->
+                <div class="hero-visual">
+                    <div class="main-image-container">
+                        <img src="Hero Section Image.png" alt="CreativeFlow Dashboard" class="main-image">
+                    </div>
+                    
+                    <!-- Badges flottants autour de l'image -->
+                    <div class="floating-badge top-left">
+                        <span class="badge-icon">⚡</span>
+                        Import auto
+                    </div>
+                    <div class="floating-badge top-right">
+                        <span class="badge-icon">🤖</span>
+                        IA tagging
+                    </div>
+                    <div class="floating-badge bottom-left">
+                        <span class="badge-icon">🔍</span>
+                        Recherche
+                    </div>
+                    <div class="floating-badge bottom-right">
+                        <span class="badge-icon">📊</span>
+                        Analytics
+                    </div>
+                    <div class="floating-badge mid-left">
+                        <span class="badge-icon">⏱️</span>
+                        Gain temps
+                    </div>
+                    <div class="floating-badge mid-right">
+                        <span class="badge-icon">🎯</span>
+                        Focus créa
+                    </div>
+                </div>
+                
+                <!-- 5. Stats transformées en badges -->
+                <div class="stats-badges">
+                    <div class="stat-badge">
+                        <span class="stat-number">300</span>
+                        <span class="stat-label">vidéos/jour automatisées</span>
+                    </div>
+                    <div class="stat-badge">
+                        <span class="stat-number">5h</span>
+                        <span class="stat-label">économisées/semaine</span>
+                    </div>
+                    <div class="stat-badge">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">de vidéos taguées</span>
+                    </div>
+                </div>
+                
+                <!-- 6. CTA principal -->
+                <div class="hero-cta">
+                    <a href="#video-demo" class="cta-primary">
+                        Voir comment ça marche
+                        <span class="loading-animation" style="display: none;"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator"></div>
+    </section>
+
+    <!-- Pain Points Section -->
+    <section class="pain-points">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Vous reconnaissez-vous ?</h2>
+                <p class="section-subtitle">Les défis quotidiens des Creative Strategists performants</p>
+            </div>
+            
+            <div class="pain-grid">
+                <div class="pain-card">
+                    <div class="pain-icon">🔍</div>
+                    <h3 class="pain-title">5h/semaine perdues</h3>
+                    <p class="pain-description">
+                        À chercher LA bonne version parmi des centaines de fichiers. 
+                        Pendant que vos concurrents lancent déjà leur prochaine campagne.
+                    </p>
+                </div>
+                
+                <div class="pain-card">
+                    <div class="pain-icon">📹</div>
+                    <h3 class="pain-title">300+ vidéos par semaine</h3>
+                    <p class="pain-description">
+                        Le volume explose, mais votre équipe reste la même. 
+                        Comment scaler sans sacrifier la qualité ni votre santé mentale ?
+                    </p>
+                </div>
+                
+                <div class="pain-card">
+                    <div class="pain-icon">🎯</div>
+                    <h3 class="pain-title">Creative fatigue</h3>
+                    <p class="pain-description">
+                        Vos ads performent 3-4 semaines max. Il faut itérer constamment, 
+                        mais l'organisation manuelle vous ralentit.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Simple comme bonjour</h2>
+                <p class="section-subtitle">De Drive à Frame.io en 3 étapes automatiques</p>
+            </div>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Uploadez sur Drive</h3>
+                    <p class="step-description">
+                        Continuez votre workflow habituel. 
+                        Déposez vos rushs dans Google Drive comme d'habitude.
+                    </p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">IA analyse & tagge</h3>
+                    <p class="step-description">
+                        Notre IA reconnaît produits, concepts, avatars et génère 
+                        des métadonnées intelligentes instantanément.
+                    </p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Retrouvez sur Frame.io</h3>
+                    <p class="step-description">
+                        Vos vidéos apparaissent organisées, taguées et prêtes 
+                        à l'emploi. Zéro action manuelle.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Demo Section -->
+    <section class="video-demo" id="video-demo">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Voyez la magie en action</h2>
+                <p class="section-subtitle">1 minutes pour comprendre comment CreativeFlow transforme votre workflow</p>
+            </div>
+            
+            <div class="video-wrapper">
+                <div class="video-container">
+                    <div class="video-overlay" id="videoOverlay" onclick="showCanvaVideo()">
+                        <div class="play-button">
+                            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                                <circle cx="40" cy="40" r="40" fill="white" fill-opacity="0.95"/>
+                                <path d="M32 26L52 40L32 54V26Z" fill="#0066FF"/>
+                            </svg>
+                        </div>
+                        <div class="video-duration">1:00</div>
+                    </div>
+                    
+                    <!-- Canva Video Embed (hidden initially) -->
+                    <div id="canvaVideoContainer" style="display: none; position: relative; width: 100%; height: 0; padding-top: 56.2500%; padding-bottom: 0; overflow: hidden; border-radius: 24px;">
+                        <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0;"
+                            src="https://www.canva.com/design/DAGu6Dvcpc8/8JodXDst_tjhm-RtqC-6zg/watch?embed" 
+                            allowfullscreen="allowfullscreen" allow="fullscreen">
+                        </iframe>
+                    </div>
+                    
+                    <!-- Placeholder image -->
+                    <div class="video-placeholder" id="videoPlaceholder">
+                        <div class="interface-mockup">
+                            <div class="mockup-header">
+                                <div class="mockup-dots">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <div class="mockup-title">CreativeFlow Dashboard</div>
+                            </div>
+                            <div class="mockup-content">
+                                <div class="mockup-sidebar">
+                                    <div class="mockup-item active">📹 Vidéos importées</div>
+                                    <div class="mockup-item">🏷️ Tags automatiques</div>
+                                    <div class="mockup-item">📊 Analytics</div>
+                                </div>
+                                <div class="mockup-main">
+                                    <div class="video-grid">
+                                        <div class="video-card tagged">
+                                            <div class="video-thumb"></div>
+                                            <div class="video-tags">
+                                                <span class="tag">Produit A</span>
+                                                <span class="tag">UGC</span>
+                                                <span class="tag">Hook 3</span>
+                                            </div>
+                                        </div>
+                                        <div class="video-card tagged">
+                                            <div class="video-thumb"></div>
+                                            <div class="video-tags">
+                                                <span class="tag">Produit B</span>
+                                                <span class="tag">VSL</span>
+                                                <span class="tag">Avatar 2</span>
+                                            </div>
+                                        </div>
+                                        <div class="video-card processing">
+                                            <div class="video-thumb">
+                                                <div class="processing-icon">⚡</div>
+                                            </div>
+                                            <div class="video-status">Traitement IA...</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="video-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">⚡</div>
+                        <div class="feature-text">
+                            <strong>Import automatique</strong>
+                            <span>Détection instantanée des nouveaux fichiers</span>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🤖</div>
+                        <div class="feature-text">
+                            <strong>IA de reconnaissance</strong>
+                            <span>Produits, concepts et avatars identifiés</span>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🔍</div>
+                        <div class="feature-text">
+                            <strong>Recherche instantanée</strong>
+                            <span>Retrouvez n'importe quelle vidéo en 2 secondes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Calculator -->
+    <section class="roi-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Calculez vos économies</h2>
+                <p class="section-subtitle">Découvrez combien de temps votre équipe peut récupérer</p>
+            </div>
+            
+            <div class="roi-calculator">
+                <div class="calculator-input">
+                    <label for="videos">Combien de vidéos gérez-vous par semaine ?</label>
+                    <input type="range" id="videos" class="slider" min="50" max="500" value="200">
+                    <div class="slider-value" id="videosValue">200 vidéos</div>
+                </div>
+                
+                <div class="roi-results">
+                    <div class="roi-stat">
+                        <strong id="timeSaved">16h</strong> économisées par semaine
+                    </div>
+                    <div class="roi-stat">
+                        <strong id="moneySaved">800€</strong> d'économies hebdomadaires
+                    </div>
+                    <div class="roi-stat">
+                        <strong id="yearSaved">41,600€</strong> d'économies annuelles
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="testimonial">
+        <div class="container">
+            <div class="testimonial-content">
+                <p class="testimonial-quote">
+                    "Avant CreativeFlow, on passait des heures à chercher nos vidéos. 
+                    Maintenant, tout est automatique. On a multiplié par 3 notre production 
+                    de créatives sans embaucher. Game changer absolu."
+                </p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">JC</div>
+                    <div class="author-info">
+                        <div class="author-name">Jad Couto</div>
+                        <div class="author-title">Creative Strategist • Satyn.fr</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="demo">
+        <div class="container">
+            <h2 class="section-title">Prêt à automatiser votre workflow ?</h2>
+            <p class="section-subtitle">
+                30 minutes pour découvrir comment gagner 5h par semaine. ROI immédiat garanti.
+            </p>
+            <a href="https://calendly.com/ayoub-benhaddya/le-rouage-audit-ia-30min" target="_blank" class="cta-secondary">
+                Planifier un appel stratégique →
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>© 2025 CreativeFlow. L'automatisation intelligente pour Creative Strategists.</p>
+            </div>
+            <div class="footer-branding">
+                <img src="Logo ² + Fond .png" alt="CreativeFlow Logo" class="footer-logo">
+                <span>Designed by CreativeFlow, engineered by LeRouage</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.boxShadow = 'none';
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // ROI Calculator
+        const slider = document.getElementById('videos');
+        const videosValue = document.getElementById('videosValue');
+        const timeSaved = document.getElementById('timeSaved');
+        const moneySaved = document.getElementById('moneySaved');
+        const yearSaved = document.getElementById('yearSaved');
+
+        function updateROI() {
+            const videos = parseInt(slider.value);
+            videosValue.textContent = `${videos} vidéos`;
+            
+            // Calcul : 5 min par vidéo économisées
+            const minutesSaved = videos * 5;
+            const hoursSaved = Math.round(minutesSaved / 60);
+            const weeklySavings = hoursSaved * 50; // 50€/h
+            const yearlySavings = weeklySavings * 52;
+            
+            timeSaved.textContent = `${hoursSaved}h`;
+            moneySaved.textContent = `${weeklySavings.toLocaleString('fr-FR')}€`;
+            yearSaved.textContent = `${yearlySavings.toLocaleString('fr-FR')}€`;
+        }
+
+        slider.addEventListener('input', updateROI);
+        updateROI();
+
+        // Video player functionality for Canva embed
+        function showCanvaVideo() {
+            const overlay = document.getElementById('videoOverlay');
+            const placeholder = document.getElementById('videoPlaceholder');
+            const canvaContainer = document.getElementById('canvaVideoContainer');
+            
+            // Hide overlay and placeholder
+            overlay.style.display = 'none';
+            placeholder.style.display = 'none';
+            
+            // Show Canva video
+            canvaContainer.style.display = 'block';
+            
+            // Track video engagement
+            console.log('Demo video started');
+            // Analytics tracking would go here
+        }
+
+        // Animate stats on scroll
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements
+        document.querySelectorAll('.stat, .pain-card, .step').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
